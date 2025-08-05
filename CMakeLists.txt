@@ -1,0 +1,68 @@
+cmake_minimum_required(VERSION 3.16)
+
+if(NOT DEFINED CMAKE_PREFIX_PATH)
+    set(CMAKE_PREFIX_PATH "D:/dev-env/Qt/6.8.3/msvc2022_64" CACHE PATH "Qt6 install prefix" FORCE)
+endif()
+
+list(APPEND CMAKE_MODULE_PATH
+    ${CMAKE_SOURCE_DIR}/cmake
+)
+include(CustomOptions)
+
+project(${TC_APP_NAME} VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+
+find_package(Qt6
+    # ${QGC_QT_MINIMUM_VERSION}...${QGC_QT_MAXIMUM_VERSION}
+    REQUIRED
+    COMPONENTS
+        Charts
+        Concurrent
+        Core
+        Core5Compat
+        Gui
+        LinguistTools
+        Location
+        Multimedia
+        Network
+        Positioning
+        Qml
+        QmlIntegration
+        Quick
+        QuickControls2
+        QuickWidgets
+        Sensors
+        Sql
+        Svg
+        TextToSpeech
+        Widgets
+        Xml
+    OPTIONAL_COMPONENTS
+        Bluetooth
+        MultimediaQuickPrivate
+        OpenGL
+        Quick3D
+        SerialPort
+        Test
+)
+
+
+qt_standard_project_setup(REQUIRES 6.8)
+
+
+
+
+
+qt_add_executable(${CMAKE_PROJECT_NAME}
+    WIN32
+    MACOSX_BUNDLE
+    ${QGC_RESOURCES}
+)
+qt_add_qml_module(${TC_APP_NAME}
+    URI ${TC_APP_NAME}
+    VERSION 1.0
+    RESOURCE_PREFIX /qml
+)
+add_subdirectory(src)
