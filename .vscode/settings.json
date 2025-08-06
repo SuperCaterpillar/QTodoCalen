@@ -14,7 +14,7 @@
   },
   "qttools.defaultQtInstallation": "Qt6",
 
-  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/debug/compile_commands.json",
 
   "clangd.arguments": [
     "--header-insertion=never",

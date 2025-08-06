@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/res">
+        <file alias="qtodocalen.ico">icons/qtodocalen.ico</file>
+    </qresource>
+</RCC>

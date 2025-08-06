@@ -1,16 +1,14 @@
 cmake_minimum_required(VERSION 3.16)
 
-if(NOT DEFINED CMAKE_PREFIX_PATH)
-    set(CMAKE_PREFIX_PATH "D:/dev-env/Qt/6.8.3/msvc2022_64" CACHE PATH "Qt6 install prefix" FORCE)
-endif()
 
 list(APPEND CMAKE_MODULE_PATH
     ${CMAKE_SOURCE_DIR}/cmake
 )
+
 include(CustomOptions)
+include(Toolchain)
 
 project(${TC_APP_NAME} VERSION 0.1 LANGUAGES CXX)
-
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
@@ -52,13 +50,17 @@ find_package(Qt6
 qt_standard_project_setup(REQUIRES 6.8)
 
 
-
-
+list(APPEND QTC_RESOURCES
+    ${CMAKE_SOURCE_DIR}/resources/qtcresources.qrc
+    # ${CMAKE_SOURCE_DIR}/qgcimages.qrc
+    # ${CMAKE_SOURCE_DIR}/resources/qtcresources.qrc
+    # ${CMAKE_SOURCE_DIR}/qgroundcontrol.qrc
+)
 
 qt_add_executable(${CMAKE_PROJECT_NAME}
     WIN32
     MACOSX_BUNDLE
-    ${QGC_RESOURCES}
+    ${QTC_RESOURCES}
 )
 qt_add_qml_module(${TC_APP_NAME}
     URI ${TC_APP_NAME}

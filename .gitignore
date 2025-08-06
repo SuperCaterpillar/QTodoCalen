@@ -81,3 +81,4 @@ CMakeLists.txt.user*
 .uic/
 .cache/
 /build*/
+out*

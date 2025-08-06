@@ -1,5 +1,6 @@
 add_subdirectory(UI)
 add_subdirectory(App)
+add_subdirectory(Utilities)
 
 target_sources(${CMAKE_PROJECT_NAME}
     PRIVATE

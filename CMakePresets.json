@@ -1,0 +1,53 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+
+  "configurePresets": [
+    {
+      "name": "qt-debug",
+      "displayName": "Qt 6 Debug Build",
+      "description": "Debug build with Qt 6 (MSVC 2022)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_PREFIX_PATH": "$env{QT6_DIR}",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+      }
+    },
+    {
+      "name": "qt-release",
+      "displayName": "Qt 6 Release Build",
+      "description": "Release build with Qt 6 (MSVC 2022)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_PREFIX_PATH": "$env{QT6_DIR}",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+      }
+    }
+  ],
+
+  "buildPresets": [
+    {
+      "name": "qt-debug-build",
+      "configurePreset": "qt-debug"
+    },
+    {
+      "name": "qt-release-build",
+      "configurePreset": "qt-release"
+    }
+  ],
+
+  "testPresets": [
+    {
+      "name": "qt-debug-test",
+      "configurePreset": "qt-debug"
+    }
+  ]
+}

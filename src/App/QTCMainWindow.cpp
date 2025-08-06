@@ -1,15 +1,26 @@
 #include "QTCMainWindow.h"
 
 #include <QQmlApplicationEngine>
-
+#include <QtCore/qapplicationstatic.h>
 #include <QQuickWindow>
+#include "Utilities/QTCLoggingCategory.h"
 
 
 namespace QTC {
+QTC_LOGGING_CATEGORY(QTCMainWindowLog, "qtc.api.QTCMainWindow");
 
-// Make sure to include the header where QQmlApplicationEnginePtr is defined, or use QQmlApplicationEngine* directly if QQmlApplicationEnginePtr is a typedef or smart pointer.
+Q_APPLICATION_STATIC(QTCMainWindow, _QTCMainWindowInstance);
 
-QTCMainWindow::QTCMainWindow(QObject *parent) : QObject{parent} {}
+
+QTCMainWindow::QTCMainWindow(QObject *parent) : QObject{parent} {
+
+    qCDebug(QTCMainWindowLog) << Q_FUNC_INFO;
+}
+
+QTCMainWindow *QTCMainWindow::instance()
+{
+    return _QTCMainWindowInstance();
+}
 
 QQmlApplicationEnginePtr QTCMainWindow::createQmlApplicationEngine(
     QObject *parent) {
@@ -24,9 +35,11 @@ QQmlApplicationEnginePtr QTCMainWindow::createQmlApplicationEngine(
   return _qmlAppEngine;
 }
 
-void QTCMainWindow::createRootWindow(QQmlApplicationEnginePtr engine)
+void QTCMainWindow::createRootWindow(QQmlApplicationEnginePtr& engine)
 {
     engine->load(QUrl(QStringLiteral("qrc:/qml/QTodoCalen/UI/MainWindow/MainWindow.qml")));
 }
+
+
 
 }  // namespace QTC
