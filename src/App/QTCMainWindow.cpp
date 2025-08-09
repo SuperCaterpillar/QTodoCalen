@@ -37,7 +37,7 @@ QQmlApplicationEnginePtr QTCMainWindow::createQmlApplicationEngine(
 
 void QTCMainWindow::createRootWindow(QQmlApplicationEnginePtr& engine)
 {
-    engine->load(QUrl(QStringLiteral("qrc:/qml/QTodoCalen/UI/MainWindow/MainWindow.qml")));
+    engine->load(QUrl(QStringLiteral("qrc:/qml/QTodoCalen/UI/MainWindow.qml")));
 }
 
 

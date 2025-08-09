@@ -1,0 +1,58 @@
+{
+  "global": {
+    "radius": 10,
+    "fonts": [
+      ""
+    ],
+    "opacity": 1
+  },
+  "QTCMainWindow": {
+    "width": 800,
+    "height": 600,
+    "backgroundColor": "#121212",
+    "title": "TodoCalen - Dark Mode",
+    "icon": {
+      "source": "qrc:/background/background.jpg"
+    },
+    "radius": 10,
+    "handleArea": {
+      "width": 10,
+      "height": 10,
+      "cornerSize": 20
+    },
+    "QTCTitleBar": {
+      "opacity": 1,
+      "height": 40,
+      "backgroundColor": "#1E1E1E",
+      "textColor": "#FFFFFF",
+      "fontSize": 14,
+      "radius": 8,
+      "mode": "normal/custom",
+      "items": {
+        "icon": {
+          "source": "qrc:/resources/icons/qtodocalen.ico"
+        },
+        "title": {
+          "text": "TodoCalen",
+          "color": "#FFFFFF",
+          "fontSize": 14
+        },
+        "minimizeButton": {
+          "normal": "",
+          "hover": "",
+          "pressed": ""
+        },
+        "maximizeButton": {
+          "normal": "",
+          "hover": "",
+          "pressed": ""
+        },
+        "closeButton": {
+          "normal": "",
+          "hover": "",
+          "pressed": ""
+        }
+      }
+    }
+  }
+}

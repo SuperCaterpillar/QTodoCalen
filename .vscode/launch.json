@@ -6,7 +6,7 @@
       "name": "QML Debug",
       "type": "cppvsdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/debug/QTodoCalen.exe", // 可执行文件名
+      "program": "${workspaceFolder}/build/debug/build/QTodoCalen.exe", // 可执行文件名
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "args": [

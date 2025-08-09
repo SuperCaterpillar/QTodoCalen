@@ -4,6 +4,8 @@
 #include <QQuickWindow>
 #include "App/QTCMainWindow.h"
 #include <QQuickStyle>
+#include "Themes/ThemeManager.h"
+ #include <QQmlContext>
 
 
 
@@ -21,7 +23,11 @@ void QTCApplication::init()
 {
   QQuickStyle::setStyle("Basic");
   QTCMainWindow::instance();
+
+  ThemeConfig::ThemeManager::instance()->loadTheme(":/themes/dark.json");
+
   _qmlAppEngine = QTCMainWindow::instance()->createQmlApplicationEngine(this);
+  _qmlAppEngine->rootContext()->setContextProperty(QStringLiteral("ThemesManager"), ThemeConfig::ThemeManager::instance());
   QObject::connect(_qmlAppEngine.data(), &QQmlApplicationEngine::objectCreationFailed, this, QCoreApplication::quit, Qt::QueuedConnection);
 
   QTCMainWindow::instance()->createRootWindow(_qmlAppEngine);

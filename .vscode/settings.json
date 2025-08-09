@@ -7,7 +7,9 @@
   "cmake.sourceDirectory": "${workspaceFolder}",
   "cmake.installPrefix": "${workspaceFolder}/install",
   "cmake.configureOnOpen": true,
-
+  "cmake.preBuildCommands": [
+    "conan install . --output-folder=build --build=missing"
+  ],
   // Qt 插件路径配置（如你装了 vscode-qt-tools）
   "qttools.qtInstallations": {
     "Qt6": "D:/dev-env/Qt/6.8.3"

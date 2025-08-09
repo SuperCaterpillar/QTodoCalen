@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/themes">
+        <file alias="dark.json">dark.json</file>
+    </qresource>
+</RCC>

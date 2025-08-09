@@ -24,8 +24,8 @@ class QTodoCalenConan(ConanFile):
         return 17
 
     def requirements(self):
-        # self.requires("qt/6.8.3")
-        pass
+        self.requires("nlohmann_json/3.12.0")
+        
 
     def validate(self):
         check_min_cppstd(self, self._min_cppstd)

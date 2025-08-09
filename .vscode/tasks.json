@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "conan install",
+      "type": "shell",
+      "command": "conan install . --output-folder=build/debug --build=missing",
+      "problemMatcher": []
+    }
+  ]
+}

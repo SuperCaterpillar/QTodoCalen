@@ -5,7 +5,6 @@
     "minor": 23,
     "patch": 0
   },
-
   "configurePresets": [
     {
       "name": "qt-debug",
@@ -13,6 +12,7 @@
       "description": "Debug build with Qt 6 (MSVC 2022)",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/debug",
+      "toolchainFile": "${sourceDir}/build/debug/conan_toolchain.cmake",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_PREFIX_PATH": "$env{QT6_DIR}",
@@ -30,9 +30,16 @@
         "CMAKE_PREFIX_PATH": "$env{QT6_DIR}",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
       }
+    },
+    {
+      "name": "conan",
+      "description": "",
+      "displayName": "",
+      "inherits": [
+        "qt-debug"
+      ]
     }
   ],
-
   "buildPresets": [
     {
       "name": "qt-debug-build",
@@ -43,7 +50,6 @@
       "configurePreset": "qt-release"
     }
   ],
-
   "testPresets": [
     {
       "name": "qt-debug-test",

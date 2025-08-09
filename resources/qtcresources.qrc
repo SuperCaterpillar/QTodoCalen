@@ -1,5 +1,14 @@
 <RCC>
+    <qresource prefix="/fonts">
+        <file alias="opensans">fonts/OpenSans-Regular.ttf</file>
+        <file alias="opensans-demibold">fonts/OpenSans-Semibold.ttf</file>
+        <file alias="NanumGothic-Regular">fonts/NanumGothic-Regular.ttf</file>
+        <file alias="NanumGothic-Bold">fonts/NanumGothic-Bold.ttf</file>
+    </qresource>
     <qresource prefix="/res">
         <file alias="qtodocalen.ico">icons/qtodocalen.ico</file>
+    </qresource>
+    <qresource prefix="/background">
+        <file alias="background.jpg">images/background.jpg</file>
     </qresource>
 </RCC>
